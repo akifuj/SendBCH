@@ -49,6 +49,7 @@ class App extends React.Component<any, ISendState> {
   }
   public render() {
     const totalAmount = "Total Send Amount: " + +this.state.amount * this.state.addresses.length + "satoshis"
+    const qrcode = "http://chart.apis.google.com/chart?chs=150x150&cht=qr&chl=" + wallet.address
     return (
       <div className="App">
         <h1 className="App-title">Send BCH</h1>
@@ -62,6 +63,7 @@ class App extends React.Component<any, ISendState> {
         <button onClick={this.handleClick}>Send BCH</button>
         <div>
           <h4>Your Wallet Address: {wallet.address}</h4>
+          <img src={qrcode} alt="QRコード" />
           <h4>Your Current Balance: {this.state.balance}</h4>
           <h4>Latest TxID You Sent: {this.state.txid}</h4>
         </div>
